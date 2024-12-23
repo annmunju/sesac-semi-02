@@ -1,3 +1,4 @@
 notebooks/
 .env
 .venv/
+.DS_Store
