@@ -1,7 +1,7 @@
 import sys
 from extract.load_dynamodb import query_items_by_date
 from transform.convert_raw_df import convert_items_to_df
-from transform.convert_visit_area_info import *
+from transform.convert_visit_dfs import *
 from load.save_rdb import insert_table
 
 def run_etl_pipeline(date):
