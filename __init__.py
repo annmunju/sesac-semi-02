@@ -1,4 +1,5 @@
-import sys
+import time
+from datetime import datetime, timedelta
 from extract.load_dynamodb import query_items_by_date
 from transform.convert_raw_df import convert_items_to_df
 from transform.convert_visit_dfs import *
@@ -13,4 +14,8 @@ def run_etl_pipeline(date):
         insert_table(df, tb_name)
 
 if __name__ == "__main__":
-    run_etl_pipeline(sys.argv[1])
+    while True:
+        # stand_date = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+        stand_date = datetime.now().strftime('%Y-%m-%d')
+        run_etl_pipeline(stand_date)
+        time.sleep(86400)  # 24시간 대기
