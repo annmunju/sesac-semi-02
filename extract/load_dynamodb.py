@@ -20,7 +20,7 @@ dynamodb_client = boto3.client(
     region_name=region_name
 )
 
-def query_items_by_date(date, table_name = 'MyTable'):
+def query_items_by_date(date, table_name = 'semi-raw-data'):
     """
     해당 데이터가 생성된 일자에 해당하는 모든 항목을 DynamoDB 테이블에서 조회하는 함수
     :param date: 조회할 일자 (YYYY-MM-DD 형식의 문자열)
@@ -41,5 +41,6 @@ def query_items_by_date(date, table_name = 'MyTable'):
 
 if __name__ == "__main__":
     date = '2024-12-22'  # 조회할 일자
-    items = query_items_by_date('MyTable', date)
+    table_name = 'semi-raw-data'
+    items = query_items_by_date(date, table_name)
     print(items)

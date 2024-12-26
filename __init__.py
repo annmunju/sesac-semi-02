@@ -5,8 +5,8 @@ from transform.convert_raw_df import convert_items_to_df
 from transform.convert_visit_dfs import *
 from load.save_rdb import insert_table
 
-def run_etl_pipeline(date):
-    items = query_items_by_date(date)
+def run_etl_pipeline(date, dynamodb_tb='semi-raw-data'):
+    items = query_items_by_date(date, dynamodb_tb)
     raw_df = convert_items_to_df(items)
     func_ls = [change_tms_df, change_t_df, change_ta_df]
     for func in func_ls:
